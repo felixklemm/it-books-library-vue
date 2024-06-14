@@ -3,7 +3,11 @@ import { useRoute } from 'vue-router'
 import { useBooksStore } from '@/stores/books'
 const route = useRoute()
 const booksStore = useBooksStore()
-const book = booksStore.books.find((book) => book.isbn === route.params.isbn) // would be nice to define a 404 block in case book is not found
+const book = booksStore.books.find((book) => book.isbn === route.params.isbn) // this could also be done with async api request, but not neccessary for this example (payload size for book item in /books is equal to /books/:isbn)
+
+/*
+would be nice to define a 404 template in case book is not found 
+*/
 
 const back = () => history.back() // using history API to go back, not router
 </script>
